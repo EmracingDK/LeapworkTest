@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Leap & Leash Pet Market</title>
+    <link
+      rel="icon"
+      href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="8" fill="%23275948"/><path d="M10 24c0-7 5-12 12-12 5 0 8 3 8 7 0 3-2 5-5 5h-4" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 24c-4 1-7 3-8 7" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="24" r="3.5" fill="white"/><circle cx="18" cy="19" r="1.8" fill="white"/><circle cx="22" cy="17" r="1.8" fill="white"/><circle cx="26" cy="19" r="1.8" fill="white"/></svg>'
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="#" aria-label="Leap and Leash home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" role="img">
+              <path class="logo-leash" d="M10 24c0-7 5-12 12-12 5 0 8 3 8 7 0 3-2 5-5 5h-4" />
+              <path class="logo-tail" d="M18 24c-4 1-7 3-8 7" />
+              <circle cx="22" cy="24" r="3.5" />
+              <circle cx="18" cy="19" r="1.8" />
+              <circle cx="22" cy="17" r="1.8" />
+              <circle cx="26" cy="19" r="1.8" />
+            </svg>
+          </span>
+          <span>Leap & Leash</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a href="#products">Products</a>
+          <a href="#new">New</a>
+          <a href="#deals">Deals</a>
+        </nav>
+
+        <div class="header-actions">
+          <label class="search">
+            <span class="sr-only">Search products</span>
+            <input id="searchInput" type="search" placeholder="Search food, toys, care" />
+          </label>
+          <button class="icon-button" id="cartButton" type="button" aria-label="Open cart">
+            <svg class="nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="8" cy="21" r="1" />
+              <circle cx="19" cy="21" r="1" />
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <button class="account-button" id="accountButton" type="button" aria-label="Account" aria-controls="accountMenu" aria-expanded="false">
+            <svg class="nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="5" />
+              <path d="M20 21a8 8 0 0 0-16 0" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <aside class="account-menu" id="accountMenu" aria-hidden="true" aria-label="Account menu">
+      <div class="account-menu-panel">
+        <button class="account-menu-item guest-account-item" type="button" data-auth-mode="signin">Sign in</button>
+        <button class="account-menu-item guest-account-item" type="button" data-auth-mode="register">Register</button>
+        <button class="account-menu-item signed-in-account-item" type="button" data-account-view="profile" hidden>Edit profile</button>
+        <button class="account-menu-item signed-in-account-item" type="button" data-account-view="orders" hidden>Order history</button>
+        <button class="account-menu-item signed-in-account-item" type="button" data-account-view="addresses" hidden>Saved addresses</button>
+        <button class="account-menu-item admin-account-item" type="button" data-account-view="admin-orders" hidden>Admin orders</button>
+        <button class="logout-button signed-in-account-item" id="logoutButton" type="button" hidden>Log out</button>
+      </div>
+    </aside>
+
+    <main>
+      <section class="hero" id="heroSection">
+        <div class="hero-media" aria-hidden="true">
+          <img src="assets/hero-pet-store.png" alt="" />
+        </div>
+        <div class="hero-frame">
+          <div class="hero-copy">
+            <h1>Everything pets need, ready for the week ahead.</h1>
+            <p class="hero-text">
+              Fresh food, tougher toys, cozy gear, and easy grooming picks curated for busy pet families.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#products">Shop products</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="storefrontView">
+        <section class="promo-strip" aria-label="Store benefits">
+          <div>
+            <strong>Free local delivery</strong>
+            <span>On orders over $50</span>
+          </div>
+          <div>
+            <strong>Autoship savings</strong>
+            <span>Save 15% on staples</span>
+          </div>
+          <div>
+            <strong>Same-day pickup</strong>
+            <span>Ready in two hours</span>
+          </div>
+        </section>
+
+        <section class="section product-section" id="products">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow" id="productEyebrow">Shop</p>
+            <h2>All Products</h2>
+          </div>
+          <div class="product-controls">
+            <select id="categoryFilter" aria-label="Filter products by category">
+              <option value="all">All pets</option>
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+              <option value="small">Small pets</option>
+            </select>
+            <select id="sortSelect" aria-label="Sort products">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: low to high</option>
+              <option value="price-high">Price: high to low</option>
+            </select>
+          </div>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+        <footer class="store-footer">
+          <p>&copy; 2026 Leap & Leash.</p>
+          <nav aria-label="Footer">
+            <button type="button" data-info-page="faq">FAQ</button>
+            <button type="button" data-info-page="returns">Returns</button>
+          </nav>
+        </footer>
+      </section>
+
+      </div>
+
+      <section class="section info-page" id="faqPage" hidden>
+        <button class="back-button" type="button" data-info-back>&larr; Back</button>
+        <div class="section-header">
+          <div>
+            <h2>FAQ</h2>
+          </div>
+        </div>
+        <div class="info-content">
+          <details open>
+            <summary>How fast is local delivery?</summary>
+            <p>Most demo orders are shown as arriving within the selected delivery window. Actual shipping is simulated for this frontend demo.</p>
+          </details>
+          <details>
+            <summary>When is shipping free?</summary>
+            <p>Orders of $50 or more after discounts qualify for free shipping. Orders below that threshold pay $4.99 shipping.</p>
+          </details>
+          <details>
+            <summary>Can I change my saved address?</summary>
+            <p>Logged-in demo customers can edit saved addresses from My Account. Changes last only for the current browser session.</p>
+          </details>
+          <details>
+            <summary>Are payments real?</summary>
+            <p>No. Payment options are frontend-only demo choices and no external payment service is contacted.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section info-page" id="returnsPage" hidden>
+        <button class="back-button" type="button" data-info-back>&larr; Back</button>
+        <div class="section-header">
+          <div>
+            <h2>Returns</h2>
+          </div>
+        </div>
+        <div class="info-content">
+          <form class="return-form" id="returnForm">
+            <label>
+              <span>Order number</span>
+              <input id="returnOrderNumber" type="text" placeholder="12345" autocomplete="off" />
+            </label>
+            <button class="button primary" type="submit">Search order</button>
+            <p class="form-message" id="returnMessage" aria-live="polite"></p>
+          </form>
+          <div class="return-details" id="returnDetails" hidden></div>
+          <div class="demo-credentials return-examples" aria-label="Example return order numbers">
+            <h3>Example orders</h3>
+            <button type="button" data-return-example="TT-590768">
+              <span>
+                <strong>Eligible return</strong>
+                <small>TT-590768</small>
+              </span>
+            </button>
+            <button type="button" data-return-example="TT-203641">
+              <span>
+                <strong>Past return window</strong>
+                <small>TT-203641</small>
+              </span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section account-page" id="accountPage" hidden>
+        <button class="back-button" id="accountBackButton" type="button">&larr; Back</button>
+        <div class="section-header">
+          <div>
+            <h2 id="accountTitle">My Account</h2>
+          </div>
+        </div>
+        <div class="account-layout">
+          <aside class="account-sidebar" id="accountSidebar" aria-label="Account sections">
+            <button class="active" type="button" data-account-view="profile">Edit profile</button>
+            <button type="button" data-account-view="orders">Order history</button>
+            <button type="button" data-account-view="addresses">Saved addresses</button>
+          </aside>
+          <div class="account-content" id="accountContent"></div>
+        </div>
+      </section>
+
+      <section class="section checkout-page" id="checkoutModal" hidden aria-label="Checkout">
+        <button class="back-button" id="closeCheckout" type="button">&larr; Back</button>
+        <div class="section-header">
+          <div>
+            <h2 id="checkoutTitle">Checkout</h2>
+          </div>
+        </div>
+
+        <div class="checkout-layout">
+          <div class="checkout-main-panel">
+            <form class="checkout-form" id="checkoutForm">
+              <div class="checkout-steps" aria-label="Checkout progress">
+                <span class="active" data-step-indicator="address">Address</span>
+                <span data-step-indicator="payment">Payment</span>
+                <span data-step-indicator="review">Review</span>
+              </div>
+
+              <div class="checkout-step-panel" id="addressStep">
+                <label>
+                  <span>Recipient name</span>
+                  <input id="customerName" type="text" autocomplete="name" required />
+                </label>
+                <label>
+                  <span>Email address</span>
+                  <input id="customerEmail" type="email" autocomplete="email" required />
+                </label>
+                <div class="saved-address-field" id="savedAddressField" hidden>
+                  <label>
+                    <span>Saved address</span>
+                    <select id="savedAddressSelect" aria-label="Choose a saved address"></select>
+                  </label>
+                  <div class="selected-address" id="selectedAddressDisplay"></div>
+                </div>
+                <div class="address-grid" id="addressFields" aria-label="Delivery address">
+                  <label class="address-wide address-autocomplete">
+                    <span>Street address</span>
+                    <input id="customerStreet" type="text" autocomplete="street-address" required aria-controls="addressSuggestions" aria-expanded="false" />
+                    <div class="address-suggestions" id="addressSuggestions" role="listbox" hidden></div>
+                  </label>
+                  <label>
+                    <span>ZIP code</span>
+                    <input id="customerZip" type="text" autocomplete="postal-code" required />
+                  </label>
+                  <label>
+                    <span>City</span>
+                    <input id="customerCity" type="text" autocomplete="address-level2" required />
+                  </label>
+                  <label class="address-wide">
+                    <span>Country</span>
+                    <input id="customerCountry" type="text" autocomplete="country-name" required />
+                  </label>
+                </div>
+                <div class="checkout-actions">
+                  <button class="button primary" id="continueToPayment" type="button">Continue to payment</button>
+                </div>
+              </div>
+
+              <div class="checkout-step-panel" id="paymentStep" hidden>
+                <fieldset class="payment-options">
+                  <legend>Payment</legend>
+                  <label>
+                    <input type="radio" name="paymentMethod" value="Demo card ending in 4242" checked />
+                    <span>Demo card ending in 4242</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="paymentMethod" value="PayPal demo" />
+                    <span>PayPal demo</span>
+                  </label>
+                </fieldset>
+                <label class="date-field">
+                  <span>Preferred delivery date</span>
+                  <input id="deliveryDate" type="date" required />
+                </label>
+                <div class="checkout-actions">
+                  <button class="button secondary light" id="backToAddress" type="button">Back</button>
+                  <button class="button primary" id="continueToReview" type="button">Review order</button>
+                </div>
+              </div>
+
+              <div class="checkout-step-panel" id="reviewStep" hidden>
+                <div class="summary-block" id="checkoutReviewSummary"></div>
+                <div class="checkout-actions">
+                  <button class="button secondary light" id="backToPayment" type="button">Back</button>
+                  <button class="button primary" type="submit">Place order</button>
+                </div>
+              </div>
+              <p class="form-message" id="checkoutMessage" aria-live="polite"></p>
+            </form>
+
+            <div class="checkout-success" id="checkoutSuccess" hidden>
+              <div class="success-mark" aria-hidden="true"></div>
+              <h2>Order confirmed</h2>
+              <p>Your Leap & Leash demo order is ready.</p>
+              <div class="summary-block" id="successSummary"></div>
+            </div>
+          </div>
+          <button class="button primary success-home-button" id="finishOrder" type="button" hidden>Back to home</button>
+
+          <aside class="checkout-summary-card" aria-label="Order summary">
+            <h3>Order Summary</h3>
+            <div id="checkoutSummaryItems"></div>
+            <div id="checkoutSummaryTotals"></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Shopping cart">
+      <div class="cart-panel">
+        <div class="cart-header">
+          <h2>Your Cart</h2>
+          <button class="icon-button close-button" id="closeCart" type="button" aria-label="Close cart"></button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+          <div class="cart-total" id="cartTotal"></div>
+          <button class="button primary checkout" id="checkoutButton" type="button">Checkout</button>
+        </div>
+      </div>
+    </aside>
+
+    <section class="auth-modal" id="authModal" aria-hidden="true" aria-label="Account sign in">
+      <div class="auth-panel" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+        <div class="checkout-header">
+          <div>
+            <h2 id="authTitle">Sign in or register</h2>
+          </div>
+          <button class="icon-button close-button" id="closeAuth" type="button" aria-label="Close account panel"></button>
+        </div>
+
+        <div class="auth-tabs" aria-label="Account mode">
+          <button class="active" id="signInTab" type="button">Sign in</button>
+          <button id="registerTab" type="button">Register</button>
+        </div>
+
+        <form class="checkout-form" id="authForm">
+          <label id="authNameField" hidden>
+            <span>Name</span>
+            <input id="authName" type="text" autocomplete="name" />
+          </label>
+          <label>
+            <span>Email address</span>
+            <input id="authEmail" type="email" autocomplete="email" />
+          </label>
+          <label>
+            <span>Password</span>
+            <input id="authPassword" type="password" autocomplete="current-password" />
+          </label>
+          <p class="form-message" id="authMessage" aria-live="polite"></p>
+          <button class="button primary" id="authSubmit" type="submit">Sign in</button>
+        </form>
+
+        <div class="demo-credentials" aria-label="Demo account credentials">
+          <h3>Demo accounts</h3>
+          <button type="button" data-demo-login="emma.carter@example.com">
+            <span>
+              <strong>New Customer</strong>
+              <small>emma.carter@example.com</small>
+            </span>
+            <code>Welcome123!</code>
+          </button>
+          <button type="button" data-demo-login="daniel.hughes@example.com">
+            <span>
+              <strong>VIP Customer</strong>
+              <small>daniel.hughes@example.com</small>
+            </span>
+            <code>Loyalty123!</code>
+          </button>
+          <button type="button" data-demo-login="olivia.admin@example.com">
+            <span>
+              <strong>Admin</strong>
+              <small>olivia.admin@example.com</small>
+            </span>
+            <code>Admin123!</code>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-modal" id="productModal" aria-hidden="true" aria-label="Product details">
+      <div class="product-dialog" role="dialog" aria-modal="true" aria-labelledby="productDialogTitle">
+        <button class="icon-button close-button product-close" id="closeProductModal" type="button" aria-label="Close product details"></button>
+        <div id="productDialogContent"></div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

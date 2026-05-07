@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title desc">
+  <title id="title">Low track cat litter</title>
+  <desc id="desc">An illustrated bag of cat litter with a scoop and clean litter granules.</desc>
+  <rect width="640" height="480" fill="#eef6fb"/>
+  <circle cx="514" cy="104" r="76" fill="#d5ecfb"/>
+  <circle cx="120" cy="360" r="94" fill="#e0f3e6"/>
+  <path d="M218 88h198l34 310H184z" fill="#4f8ba8"/>
+  <path d="M250 88h134l22 54H228z" fill="#37728d"/>
+  <path d="M238 190h158v104H238z" fill="#fffdf8"/>
+  <path d="M276 238c18-28 62-28 80 0-18 28-62 28-80 0z" fill="#21302f"/>
+  <path d="M274 220l-18-28m78 28 18-28" stroke="#21302f" stroke-width="10" stroke-linecap="round"/>
+  <path d="M382 346c34-16 80-10 110 14l-24 40c-36-24-72-30-116-10z" fill="#f7c65a"/>
+  <path d="M466 360l60-94" stroke="#a36f00" stroke-width="22" stroke-linecap="round"/>
+  <g fill="#d9e1e4">
+    <circle cx="254" cy="324" r="8"/>
+    <circle cx="288" cy="336" r="7"/>
+    <circle cx="324" cy="324" r="9"/>
+    <circle cx="356" cy="340" r="7"/>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title desc">
+  <title id="title">Salmon kibble bag and bowl</title>
+  <desc id="desc">An illustrated pet food bag next to a bowl of kibble.</desc>
+  <rect width="640" height="480" fill="#e7f6f4"/>
+  <circle cx="116" cy="94" r="52" fill="#ffe2b8"/>
+  <circle cx="536" cy="108" r="72" fill="#c9ece5"/>
+  <path d="M110 384c42-76 118-118 210-118s168 42 210 118z" fill="#f9d98a"/>
+  <path d="M220 96h204l34 288H186z" fill="#0f8b8d"/>
+  <path d="M250 96h144l18 50H232z" fill="#09666a"/>
+  <path d="M238 190h168v110H238z" fill="#fffaf0"/>
+  <path d="M282 246c18-36 72-44 96-12-34-4-52 20-96 12z" fill="#f26b5b"/>
+  <path d="M282 270c22 12 52 13 82 0" fill="none" stroke="#0f8b8d" stroke-width="14" stroke-linecap="round"/>
+  <ellipse cx="444" cy="356" rx="92" ry="34" fill="#72543d"/>
+  <ellipse cx="444" cy="340" rx="82" ry="30" fill="#fffdf8"/>
+  <g fill="#9b6b38">
+    <circle cx="402" cy="334" r="10"/>
+    <circle cx="432" cy="326" r="9"/>
+    <circle cx="466" cy="336" r="11"/>
+    <circle cx="492" cy="326" r="8"/>
+    <circle cx="446" cy="348" r="10"/>
+  </g>
+</svg>

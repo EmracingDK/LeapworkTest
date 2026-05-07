@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title desc">
+  <title id="title">Tough loop rope toy</title>
+  <desc id="desc">A colorful braided rope loop toy for dogs.</desc>
+  <rect width="640" height="480" fill="#ffe9e2"/>
+  <circle cx="116" cy="126" r="70" fill="#ffe0a8"/>
+  <circle cx="514" cy="360" r="92" fill="#d8f3ee"/>
+  <path d="M182 284c82-142 240-150 292-62 40 66-16 138-98 124-72-12-88-72-42-104 42-30 94 4 82 48" fill="none" stroke="#0f8b8d" stroke-width="44" stroke-linecap="round"/>
+  <path d="M182 284c82-142 240-150 292-62" fill="none" stroke="#f26b5b" stroke-width="20" stroke-linecap="round"/>
+  <path d="M270 182c50-24 100-18 140 12" fill="none" stroke="#f7c65a" stroke-width="18" stroke-linecap="round"/>
+  <path d="M158 304l-34 38m82-20-30 50" stroke="#f26b5b" stroke-width="18" stroke-linecap="round"/>
+  <path d="M486 294l54 8m-62 32 46 32" stroke="#0f8b8d" stroke-width="18" stroke-linecap="round"/>
+  <ellipse cx="320" cy="386" rx="190" ry="26" fill="#f5c6bd" opacity=".55"/>
+</svg>
